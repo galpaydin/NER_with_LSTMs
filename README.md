@@ -16,11 +16,13 @@ Where *B-* and *I-* prefixes stand for the beginning and inside of the entity, w
 
 A solution of the task will be based on neural networks, particularly, on Bi-Directional Long Short-Term Memory Networks (Bi-LSTMs).
 
+Submitted repository contains all dependensies. All you need to install and run the code. You may read information regarding related libraries whic is given below.
+
 ## Libraries
 
 For this task you will need the following libraries:
- - [Tensorflow](https://www.tensorflow.org) — an open-source software library for Machine Intelligence.
- - [Numpy](http://www.numpy.org) — a package for scientific computing.
+ - [Tensorflow](https://www.tensorflow.org) â€” an open-source software library for Machine Intelligence.
+ - [Numpy](http://www.numpy.org) â€” a package for scientific computing.
  
 If you have never worked with Tensorflow, you would probably need to read some tutorials during your work on this assignment, e.g. [this one](https://www.tensorflow.org/tutorials/recurrent) could be a good starting point. 
 The resources which were used to increase the speed for processing were given in the following paragraphs.
