@@ -1,6 +1,8 @@
-# Recognize named entities on Twitter with LSTMs
+# Recognize named entities on Twitter with LSTMs  
 
-Recurrent neural network is used to solve Named Entity Recognition (NER) problem (recognizing named entities from Twitter). NER is a common task in natural language processing systems. It serves for extraction such entities from the text as persons, organizations, locations, etc.
+Recurrent neural network is used to solve Named Entity Recognition (NER) problem (recognizing named entities from Twitter). 
+jupynet notebook + python codes can be found under "codes" folder.
+NER is a common task in natural language processing systems. It serves for extraction such entities from the text as persons, organizations, locations, etc.
 
 For example, we want to extract persons' and organizations' names from the text. Than for the input text:
 
