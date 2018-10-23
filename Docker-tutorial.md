@@ -1,9 +1,7 @@
 # Docker container with course dependencies
 
 This file describes how to use a Docker container with Jupyter notebook and
-all dependencies required for the course.
-
-The image is located at https://hub.docker.com/r/akashin/coursera-aml-nlp/.
+all dependencies required 
 
 ## Install Stable Docker Community Edition (CE)
 
@@ -25,7 +23,7 @@ https://docs.docker.com/toolbox/toolbox_install_windows/
 
 To get the latest version of the container image run:
 ```sh
-docker pull akashin/coursera-aml-nlp
+docker pull docker/Dockerfile
 ```
 It containes Ubuntu 16.04 Linux distirbutive and all dependencies that you need for our course. The downloaded image takes approximately 2.3GB. 
 
@@ -41,7 +39,7 @@ Then you need to logout and login to the system again (disconnect and connect to
 
 Now you can start new container from this image with:
 ```sh
-docker run -it -p 8080:8080 --name coursera-aml-nlp akashin/coursera-aml-nlp
+docker run -it -p 8080:8080 --name 
 ```
 This will start the Ubuntu instance and give you an access to its command line. You can type `run_notebook` to launch IPython notebook server. 
 
@@ -49,13 +47,13 @@ You may find it useful to mount a directory from your local machine within the c
 
 For Linux and OSX, the following command should work:
 ```sh
-docker run -it -p 8080:8080 --name coursera-aml-nlp -v $PWD:/root/coursera akashin/coursera-aml-nlp
+docker run -it -p 8080:8080 --name
 ```
-This will use shell alias `$PWD` to mount current directory to the folder `/root/coursera` in the container. Alternatively, you can mount arbitrary directory by replacing `$PWD` with a custom path.
+This will use shell alias `$PWD` to mount current directory to the folder `/root/...` in the container. Alternatively, you can mount arbitrary directory by replacing `$PWD` with a custom path.
 
 For Windows, there are some extra [steps](https://rominirani.com/docker-on-windows-mounting-host-directories-d96f3f056a2c) involved, and the launch command looks like
 ```sh
-docker run -it -p 8080:8080 --name coursera-aml-nlp --user root -v /c/Users/$YOUR_USERNAME:/root/coursera akashin/coursera-aml-nlp
+docker run -it -p 8080:8080 --name
 ```
 Where `/c/Users/$YOUR_USERNAME` is the path to your user's home folder.
 
@@ -65,13 +63,13 @@ If you're using Docker Toolbox on Windows, the command given above might not wor
 
 To stop the container use:
 ```sh
-docker stop coursera-aml-nlp
+docker stop 
 ```
 All the changes that were made within container will be saved.
 
 To resume the stopped container use:
 ```sh
-docker start -i coursera-aml-nlp
+docker start -i 
 ```
 ## Other operations on the container
 
@@ -86,15 +84,15 @@ To show currently running and stopped containers with their status:
 docker ps -a
 ```
 
-To connect to a Bash shell in the already running container with name `coursera-aml-nlp` run:
+To connect to a Bash shell in the already running container with name `...` run:
 ```
-docker exec -it coursera-aml-nlp bash
+docker exec -it
 ```
 This will drop you into the standard Linux Bash shell that supports common commands like `ls`, `wget` or `python3`.
 
 To remove the container and all data associated with it:
 ```sh
-docker rm coursera-aml-nlp
+docker rm ...
 ```
 Note, that this will remove all the internal data of the container (e.g. installed packages), but all the data written inside of your local mounted folder (`-v` option) will not be affected.
 
@@ -102,7 +100,7 @@ Note, that this will remove all the internal data of the container (e.g. install
 
 You can install more packages in the container if needed:
 ```sh
-docker exec coursera-aml-nlp pip3 install PACKAGE_NAME
+docker exec ... pip3 install PACKAGE_NAME
 ```
 
 ## Change RAM limits of the container
@@ -142,7 +140,7 @@ If you try to open "http://localhost:8080" or "http://127.0.0.1:8080" in your br
 - Make sure that you're running container with `-p` flag as described [here](#run-container-for-the-first-time) and that the output of `docker ps` contains a message like this:
 ```
 CONTAINER ID        IMAGE                      COMMAND             CREATED                  STATUS              PORTS               NAMES
-e5b7bcd85a1b        akashin/coursera-aml-nlp   "/bin/bash"         Less than a second ago   Up 2 seconds        8080/tcp            peaceful_lamarr
+e5b7bcd85a1b        "/bin/bash"         Less than a second ago   Up 2 seconds        8080/tcp            peaceful_lamarr
 ```
 If the part about `PORTS` differs, remove the current container following [instructions](#other-operations-on-the-container) and start it again.
 - Make sure that browser proxy settings don't interfere with accessing local web sites.
@@ -165,14 +163,3 @@ This usually happens due to low default 2GB memory limit on Windows and OSX. Fol
 This usually happens if you're using Docker Toolbox that needs Virtual Box support - hence the need for the hardware virtualization that can be enabled in BIOS.
 Try to turn on the VT-X support in BIOS as described in [Microsoft documentation](https://blogs.technet.microsoft.com/canitpro/2015/09/08/step-by-step-enabling-hyper-v-for-use-on-windows-10/) or on [GitHub](https://github.com/docker/machine/issues/4271).
 
-## Reporting the issue to the Coursera forum
-Before reporting the issue to the Coursera forum, please, make sure that you've checked the [troubleshooting](#troubleshooting) steps. Only if they don't help, post all relevant error messages, throubleshooting results, and the following information to your post:
-
-- Your operating system (e.g. Windows 7, Ubuntu Linux, OSX 10.13.3)
-- Your docker version (e.g. Docker Toolbox, Docker for Windows, output of `docker --version`)
-- Output of `docker ps -a`, `docker info`, `docker version -f "{{ .Server.Os }}"` (share thorough https://gist.github.com/ or https://pastebin.com/)
-- Output of `wget http://localhost:8080` (or `wget http://192.168.99.100:8080` for Docker Toolbox), executed from within Docker container and outside of it
-
-## Credits
-
-The template for this dockerfile was taken from https://github.com/ZEMUSHKA/coursera-aml-docker
